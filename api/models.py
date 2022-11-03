@@ -33,7 +33,7 @@ class Training(models.Model):
     name_of_training = models.CharField(max_length=100,verbose_name="Training Name",blank=True,null=True)
     duration = models.PositiveIntegerField(default=1,verbose_name="Duration In Months")
     trainer = models.ForeignKey("trainer",on_delete=models.CASCADE,verbose_name="Trainer")
-    trainee = models.ForeignKey("trainee",on_delete=models.SET_NULL,verbose_name="Trainee",null=True)
+    trainee = models.ManyToManyField(Trainee)
     start_date = models.DateField(blank=True,null=True,verbose_name="Start Date")
     created_at = models.DateTimeField(auto_now_add=True,verbose_name="Created At")
 
