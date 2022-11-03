@@ -7,6 +7,7 @@ from django.db import models
 # many to one (Forginkey)
 # many to many
 class Trainer(models.Model):
+    """It Contains Objects of Trainer"""
     name = models.CharField(max_length=100,verbose_name="Trainer Name",blank=True,null=True)
     technology = models.CharField(max_length=50,verbose_name="Technology Name",blank=True,null=True)
     joined_at = models.DateTimeField(auto_now_add=True,verbose_name="Date Of Joining")
@@ -17,6 +18,7 @@ class Trainer(models.Model):
         ordering = ["-joined_at"]
 
 class Trainee(models.Model):
+    """It Contains Objects of  Trainee"""
     name = models.CharField(verbose_name="Name Of Trainee",max_length=100,blank=True,null=True)
     technology = models.CharField(max_length=50,verbose_name="Technology Name",blank=True,null=True)
     joined_at = models.DateTimeField(auto_now_add=True,verbose_name="Date Of Joining")
@@ -28,6 +30,7 @@ class Trainee(models.Model):
 
 
 class Training(models.Model):
+    """It contains Objects Of Training"""
     name_of_training = models.CharField(max_length=100,verbose_name="Training Name",blank=True,null=True)
     duration = models.PositiveIntegerField(default=1,verbose_name="Duration In Months")
     trainer = models.ForeignKey("trainer",on_delete=models.CASCADE,verbose_name="Trainer")
