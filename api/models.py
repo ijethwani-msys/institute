@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 
 # Created at 2/11/2022 11:28 
