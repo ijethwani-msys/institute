@@ -8,4 +8,3 @@ class TraineeCreate(ListCreateAPIView):
 
 
 
-# Create your views here.
