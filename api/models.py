@@ -1,15 +1,23 @@
 from django.db import models
 
+STATUS = (
+    ("Active","Active"),
+    ("Not Active","Not Active")
+)
+
 # Created at 2/11/2022 11:28 
 
 # one to one
 # many to one (Forginkey)
 # many to many
 class Trainer(models.Model):
+
     """It Contains Objects of Trainer"""
+
     name = models.CharField(max_length=100,verbose_name="Trainer Name",blank=True,null=True)
     technology = models.CharField(max_length=50,verbose_name="Technology Name",blank=True,null=True)
     joined_at = models.DateTimeField(auto_now_add=True,verbose_name="Date Of Joining")
+    status = models.CharField(choices=STATUS,verbose_name="Status",max_length=50,blank=True,null=True)
 
     def __str__(self):
         return self.name
@@ -21,6 +29,7 @@ class Trainee(models.Model):
     name = models.CharField(verbose_name="Name Of Trainee",max_length=100,blank=True,null=True)
     technology = models.CharField(max_length=50,verbose_name="Technology Name",blank=True,null=True)
     joined_at = models.DateTimeField(auto_now_add=True,verbose_name="Date Of Joining")
+    status = models.CharField(choices=STATUS,verbose_name="Status",max_length=50,blank=True,null=True)
 
     def __str__(self):
         return self.name

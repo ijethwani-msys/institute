@@ -54,6 +54,9 @@ class TrainingList(ListAPIView):
     """List Of Training"""
     serializer_class = TrainingSerializer
     queryset = Training.objects.all()
+    renderer_classes = [TemplateHTMLRenderer]
+    def get(self, request, *args, **kwargs):
+        return Response({"data":self.get_queryset()},template_name='index.html')
 
 class TrainingDetail(RetrieveUpdateDestroyAPIView):
     """Training Details"""
