@@ -19,6 +19,10 @@ class TraineeList(ListAPIView):
     """List Of Trainee"""
     serializer_class = TraineeSerializer
     queryset = Trainee.objects.all()
+    renderer_classes = [TemplateHTMLRenderer]
+    def get(self, request, *args, **kwargs):
+        return Response({"data":self.get_queryset(),"table_headers":["ID","Name","Technology","DOJ","Status"]},template_name='index.html')
+
 
 class TraineeDetail(RetrieveUpdateDestroyAPIView):
     """Details Of Trainee"""
@@ -36,6 +40,10 @@ class TrainerList(ListAPIView):
     """List Of Trainer"""
     serializer_class = TrainerSerializer
     queryset = Trainer.objects.all()
+    renderer_classes = [TemplateHTMLRenderer]
+    def get(self, request, *args, **kwargs):
+        return Response({"data":self.get_queryset(),"table_headers":["ID","Name","Technology","DOJ","Status"]},template_name='index.html')
+
 
 
 class TrainerDetail(RetrieveUpdateDestroyAPIView):
@@ -56,7 +64,7 @@ class TrainingList(ListAPIView):
     queryset = Training.objects.all()
     renderer_classes = [TemplateHTMLRenderer]
     def get(self, request, *args, **kwargs):
-        return Response({"data":self.get_queryset()},template_name='index.html')
+        return Response({"data":self.get_queryset(),"table_headers":["ID","Name","Duration","Trainer","Start Date"],"type":"training_list"},template_name='index.html')
 
 class TrainingDetail(RetrieveUpdateDestroyAPIView):
     """Training Details"""

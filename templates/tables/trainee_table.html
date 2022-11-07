@@ -1,0 +1,11 @@
+ <tbody>
+  {% for object in data %}
+    <tr>
+      <th scope="row">{{ object.id }}</th>
+      <td>{{ object.name }}</td>
+      <td>{{ object.technology}}</td>
+      <td>{{ object.joined_at }}</td>
+      <td>{{ object.status }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
