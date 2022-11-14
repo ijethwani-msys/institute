@@ -1,9 +1,19 @@
 {% extends "base.html" %}
-
 {% block content %}
 {% comment %} {% include "modals/trainer_modal.html" %}
 {% include "modals/trainee_modal.html" %}
 {% include "modals/training_modal.html" %} {% endcomment %}
+
+<!-- Button trigger modal -->
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  {{button_name}}
+</button>
+{% if type %}
+{% include "modals/training_modal.html" %}
+{% else %}
+{% include "modals/trainer_modal.html" %}
+{% endif %}
 <table class="table table-responsive">
   <thead class="thead-dark">
     <tr>

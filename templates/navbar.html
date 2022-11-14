@@ -10,13 +10,13 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal1" >Add Trainer</a>
+          <a class="nav-link" href="{% url 'list_trainer' %}">Trainer</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal2">Add Trainee</a>
+          <a class="nav-link" href="{% url 'list_trainee' %}">Trainee</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal3">Add Training</a>
+          <a class="nav-link" href="{% url 'list_training' %}">Training</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

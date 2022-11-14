@@ -21,7 +21,7 @@ class TraineeList(ListAPIView):
     queryset = Trainee.objects.all()
     renderer_classes = [TemplateHTMLRenderer]
     def get(self, request, *args, **kwargs):
-        return Response({"data":self.get_queryset(),"table_headers":["ID","Name","Technology","DOJ","Status"]},template_name='index.html')
+        return Response({"data":self.get_queryset(),"table_headers":["ID","Name","Technology","DOJ","Status"],"button_name":"Add Trainee"},template_name='index.html')
 
 
 class TraineeDetail(RetrieveUpdateDestroyAPIView):
@@ -42,7 +42,7 @@ class TrainerList(ListAPIView):
     queryset = Trainer.objects.all()
     renderer_classes = [TemplateHTMLRenderer]
     def get(self, request, *args, **kwargs):
-        return Response({"data":self.get_queryset(),"table_headers":["ID","Name","Technology","DOJ","Status"]},template_name='index.html')
+        return Response({"data":self.get_queryset(),"table_headers":["ID","Name","Technology","DOJ","Status"],"button_name":"Add Trainer"},template_name='index.html')
 
 
 
@@ -64,7 +64,7 @@ class TrainingList(ListAPIView):
     queryset = Training.objects.all()
     renderer_classes = [TemplateHTMLRenderer]
     def get(self, request, *args, **kwargs):
-        return Response({"data":self.get_queryset(),"table_headers":["ID","Name","Duration","Trainer","Start Date"],"type":"training_list"},template_name='index.html')
+        return Response({"data":self.get_queryset(),"table_headers":["ID","Name","Duration","Trainer","Start Date"],"type":"training_list","button_name":"Add Training"},template_name='index.html')
 
 class TrainingDetail(RetrieveUpdateDestroyAPIView):
     """Training Details"""
