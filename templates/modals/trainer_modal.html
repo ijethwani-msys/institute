@@ -8,16 +8,19 @@
       <div class="modal-body">
         <div class="row g-3">
   <div class="col">
-    <input type="text" class="form-control" placeholder="Full Name" aria-label="Full Name">
+  <form action="." method="POST" id="form1">
+  {% csrf_token %}
+    <input type="text" name="name"class="form-control" placeholder="Full Name" aria-label="Full Name">
   </div>
   <div class="col">
-    <input type="text" class="form-control" placeholder="Technology Name" aria-label="Technology Name">
+    <input type="text" name="technology" class="form-control" placeholder="Technology Name" aria-label="Technology Name">
   </div>
+  </form>
 </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="sumbit" form="form1" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
